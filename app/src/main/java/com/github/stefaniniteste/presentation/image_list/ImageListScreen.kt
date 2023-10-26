@@ -20,9 +20,18 @@ fun ImageListScreen(
     val state = viewModel.state.value
 
     Box(modifier = Modifier.fillMaxSize()) {
-        LazyVerticalGrid(columns = GridCells.Fixed(2)) {
-            items(state.imageList) {
-                ImageCard(modifier = Modifier.fillMaxSize(), image = it.image[0])
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(4)
+        ) {
+            items(key = { gallery ->
+                gallery.id
+            }, items = state.imageList) { gallery ->
+                var link = ""
+                link = if (gallery.link.startsWith("https://i.")) gallery.link
+                else gallery.image!![0].link
+                ImageCard(
+                    link = link
+                )
             }
         }
     }

@@ -62,7 +62,8 @@ dependencies {
     val okhttpVersion = "4.11.0"
 
     //Coil
-    implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
+    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation("io.coil-kt:coil-video:2.4.0")
 
     //Dagger Hilt
     implementation("com.google.dagger:hilt-android:2.48")
