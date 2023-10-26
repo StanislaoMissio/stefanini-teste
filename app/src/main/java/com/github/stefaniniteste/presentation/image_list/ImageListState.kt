@@ -1,9 +1,9 @@
 package com.github.stefaniniteste.presentation.image_list
 
-import com.github.stefaniniteste.data.remote.Image
+import com.github.stefaniniteste.data.remote.Gallery
 
 data class ImageListState(
     val isLoading: Boolean = false,
-    val imageList: List<Image> = emptyList(),
+    val imageList: List<Gallery> = emptyList(),
     val error: String = ""
 )

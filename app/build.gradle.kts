@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.github.stefaniniteste"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.github.stefaniniteste"
@@ -32,11 +32,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -62,7 +62,7 @@ dependencies {
     val okhttpVersion = "4.11.0"
 
     //Coil
-    implementation("io.coil-kt:coil:2.4.0")
+    implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
 
     //Dagger Hilt
     implementation("com.google.dagger:hilt-android:2.48")
