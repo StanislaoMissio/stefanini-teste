@@ -1,3 +1,8 @@
 package com.github.stefaniniteste.commom
 
-data class Response<T>(val data: List<T>)
+import com.google.gson.annotations.SerializedName
+
+data class Response<T>(
+    @SerializedName("data")
+    val data: List<T>
+)
