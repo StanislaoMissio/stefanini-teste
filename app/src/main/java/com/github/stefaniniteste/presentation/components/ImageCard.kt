@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import coil.ImageLoader
 import coil.compose.SubcomposeAsyncImage
@@ -21,7 +22,8 @@ import coil.decode.VideoFrameDecoder
 
 @Composable
 fun ImageCard(
-    link: String
+    link: String,
+    testTag: String
 ) {
     val imageLoader = ImageLoader.Builder(LocalContext.current).components {
         add(VideoFrameDecoder.Factory())
@@ -30,7 +32,8 @@ fun ImageCard(
         modifier = Modifier
             .padding(8.dp)
             .height(150.dp)
-            .width(150.dp),
+            .width(150.dp)
+            .testTag(testTag),
         shape = RoundedCornerShape(20),
         colors = CardDefaults.cardColors(containerColor = Color.Transparent)
     ) {

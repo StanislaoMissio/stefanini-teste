@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.github.stefaniniteste.presentation.components.ImageCard
@@ -21,6 +22,7 @@ fun ImageListScreen(
 
     Box(modifier = Modifier.fillMaxSize()) {
         LazyVerticalGrid(
+            modifier = Modifier.testTag("grid"),
             columns = GridCells.Fixed(4)
         ) {
             items(key = { gallery ->
@@ -30,7 +32,8 @@ fun ImageListScreen(
                 link = if (gallery.link.startsWith("https://i.")) gallery.link
                 else gallery.image!![0].link
                 ImageCard(
-                    link = link
+                    link = link,
+                    testTag = gallery.id
                 )
             }
         }
