@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
+import androidx.compose.ui.platform.testTag
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.github.stefaniniteste.presentation.components.ImageCard
@@ -37,18 +38,19 @@ fun ImageListScreen(
     if (state.imageList.isNotEmpty()) {
         Box(modifier = Modifier.fillMaxSize()) {
             LazyVerticalGrid(
-                columns = GridCells.Fixed(4)
-            ) {
-                items(key = { gallery ->
-                    gallery.id
-                }, items = state.imageList) { gallery ->
-                    var link = ""
-                    link = if (gallery.link.startsWith("https://i.")) gallery.link
-                    else gallery.image!![0].link
-                    ImageCard(
-                        link = link
-                    )
-                }
+                modifier = Modifier.testTag("grid"),
+            columns = GridCells.Fixed(4)
+        ) {
+            items(key = { gallery ->
+                gallery.id
+            }, items = state.imageList) { gallery ->
+                var link = ""
+                link = if (gallery.link.startsWith("https://i.")) gallery.link
+                else gallery.image!![0].link
+                ImageCard(
+                    link = link,
+                    testTag = gallery.id
+                )}
             }
         }
     }

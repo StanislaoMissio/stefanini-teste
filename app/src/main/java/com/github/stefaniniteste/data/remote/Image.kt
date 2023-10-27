@@ -1,12 +1,12 @@
 package com.github.stefaniniteste.data.remote
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 
 data class Image(
-    @SerializedName("type")
+    @SerialName("type")
     val type: String,
-    @SerializedName("description")
+    @SerialName("description")
     val description: String,
-    @SerializedName("link")
+    @SerialName("link")
     val link: String
 )
