@@ -36,4 +36,12 @@ class ImageListViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
+    fun reload() {
+        getImages()
+    }
+
+    fun clearErrorState() {
+        _state.value = ImageListState(error = "")
+    }
+
 }
