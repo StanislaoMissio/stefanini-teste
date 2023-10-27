@@ -1,14 +1,15 @@
 package com.github.stefaniniteste.data.remote
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+
 
 data class Gallery(
-    @SerializedName("id")
+    @SerialName("id")
     val id: String,
-    @SerializedName("title")
+    @SerialName("title")
     val title: String,
-    @SerializedName("images")
+    @SerialName("images")
     val image: List<Image>?,
-    @SerializedName("link")
+    @SerialName("link")
     val link: String
 )

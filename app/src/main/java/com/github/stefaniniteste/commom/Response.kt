@@ -1,8 +1,9 @@
 package com.github.stefaniniteste.commom
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+
 
 data class Response<T>(
-    @SerializedName("data")
+    @SerialName("data")
     val data: List<T>
 )
