@@ -15,9 +15,13 @@ class GetImageListUseCase @Inject constructor(private val repository: Repository
         val result = try {
             val images = repository.getImageList().data
             Resources.Success(images)
-        } catch (exception: HttpException) {
+        } catch (httpException: HttpException) {
             Resources.Error(
-                message = exception.localizedMessage ?: "Tente novamente mais tarde!"
+                message = "Deu algo errado com nossos servidores, tente novamente mais tarde!"
+            )
+        } catch (exception: Exception) {
+            Resources.Error(
+                message = "Ops, algo deu errado. Tente novamente mais tarde!"
             )
         }
         emit(result)
